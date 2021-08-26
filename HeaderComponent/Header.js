@@ -5,7 +5,7 @@ import { NavDropdown } from 'react-bootstrap';// npm install react-bootstrap
 
 
 
-import './style.css' //  u can import file style.css  
+import './style.css' //  importer fichier  style.css  
 
 
 function Header() {
