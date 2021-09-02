@@ -1,0 +1,273 @@
+/**********************************/
+/*********** Feature CSS **********/
+/**********************************/
+.feature {
+    position: relative;
+}
+
+.feature-col {
+    margin-bottom: 5px;
+}
+.feature-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 30px 15px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.feature-content i {
+    color: #FF6F61;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.feature-content h3 {
+    font-size: 16px;
+}
+.feature-content a {
+    color: #FF6F61;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+
+
+/**********************************/
+/******** Product Item CSS ********/
+/**********************************/
+.product-item {
+    position: relative;
+    width: 200px;
+    height: 400px;
+}
+
+.product-item .product-title {
+    padding: 15px;
+    text-align: center;
+    background: #000000;
+    transition: all .3s;
+    width: 350px;
+}
+
+.product-item:hover .product-title {
+    background: #FF6F61;
+}
+
+.product-item .product-title a,
+.product-item .product-title .ratting {
+    position: relative;
+    width: 100%;
+}
+
+.product-item .product-title a {
+    margin-bottom: 5px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.product-item .product-title .ratting i {
+    font-size: 14px;
+    color: #FF6F61;
+}
+
+.product-item .product-content .price span {
+    margin-left: 12px;
+    text-decoration: line-through;
+    font-weight: 700;
+    color: #e6e5de;
+}
+
+.product-item:hover .product-title a,
+.product-item:hover .product-title .ratting i {
+    color: #ffffff;
+}
+
+.product-item:hover .product-content .price span {
+    color: #dddddd;
+    width:250px;
+}
+
+.product-item .product-image {
+    position: relative;
+    overflow: hidden;
+    width: 350px;
+    height:200px;
+}
+
+.product-item .product-image a {
+    display: block;
+    background: #ffffff;
+    transition: .3s;
+}
+
+.product-item .product-image img {
+    width: 100%; 
+    transition: all .3s;
+}
+
+.product-item:hover .product-image img {
+    transform: scale(1.2);
+}
+
+.product-item .product-image .product-action {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6e5de;
+    transition: all .3s;
+    font-size: 0;
+    z-index: 1;
+    opacity: 0;
+}
+
+.product-item:hover .product-image .product-action {
+    opacity: 1; 
+}
+
+.product-item .product-image .product-action a {
+    display: inline-block;
+   
+
+    font-size: 16px;
+    text-align: center;
+    color: #ffffff;
+    background: #FF6F61;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    transition: all .3s;
+   
+}
+
+.product-item:hover .product-image .product-action a {
+    margin-top: 0;
+}
+
+.product-item .product-image .product-action a:last-child {
+    margin-right: 0;
+}
+
+.product-item .product-image .product-action a:hover {
+    color: #FF6F61;
+    background: #ffffff;
+    border: 1px solid #FF6F61;
+}
+
+.product-item .product-price {
+    padding: 20px;
+    background: #000000;
+    transition: all .3s;
+    width: 350px;
+}
+
+.product-item:hover .product-price {
+    background: #FF6F61;
+}
+
+.product-item .product-price h3 {
+    display: inline-block;
+    color: #ffffff;
+    margin: 0;
+    font-size: 25px;
+}
+
+.product-item .product-price h3 span {
+    font-size: 26px;
+}
+
+.product-item .product-price .btn {
+    float: right;
+    border: none;
+    color: #000000;
+    background: #FF6F61;
+    font-size: 15px;
+}
+
+.product-item:hover .product-price .btn,
+.product-item .product-price .btn:hover {
+    color: #FF6F61;
+    background: #ffffff;
+}
+
+.product-item .product-price .btn i {
+    margin-right: 5px;
+}
+
+
+/**********************************/
+/******** Featured Product ********/
+/**********************************/
+.featured-product {
+    position: relative;
+    padding: 30px 0;
+}
+
+.recent-product {
+    position: relative;
+    padding: 30px 0;
+}
+
+ .section-header {
+    margin-bottom: 30px;
+    padding: 20px 30px 15px 30px;
+    color: #FF6F61;
+    background: #e6e5de;
+}
+
+ .slick-prev,
+.slick-next {
+    top: -75px;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+    transition: .5s;
+    color: #FF6F61;
+    background: #ffffff;
+    border: 1px solid #FF6F61;
+    border-radius: 4px;
+}
+
+ .slick-prev {
+    left: calc(100% - 120px);
+}
+
+ .slick-next {
+    right: 45px;
+}
+
+.product .slick-prev:hover,
+.product .slick-prev:focus,
+.product .slick-next:hover,
+.product .slick-next:focus {
+    background: #FF6F61;
+}
+
+.product .slick-prev::before,
+.product .slick-next::before {
+    font-family: "Font Awesome 5 Free";
+    font-size: 18px;
+    font-weight: 900;
+    color: #FF6F61;
+}
+
+.product .slick-prev::before {
+    content: "\f104";
+}
+
+.product .slick-next::before {
+    content: "\f105";
+}
+
+.product .slick-prev:hover::before,
+.product .slick-prev:focus::before,
+.product .slick-next:hover::before,
+.product .slick-next:focus::before {
+    color: #ffffff;
+}
+
