@@ -1,3 +1,4 @@
 # E_commerce_2021 
-Using React js  and Api node Js 
 site e-Commerce pour stage d'été 
+Using React js  and ApiREST  node Js 
+
