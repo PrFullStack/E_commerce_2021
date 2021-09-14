@@ -47,6 +47,7 @@ a:hover {
 
 /*filtrage*/
 
+
 .filter {
   flex: 2 20rem;
 }
@@ -57,22 +58,23 @@ a:hover {
   color: #121212;
   text-transform:unset;
   font-size: 35px;
-  padding: 75px 0;
-  font-weight: 800;
+  padding: 5px 2;
+  font-weight: 700;
   position: relative;
   text-align: left;
-  border-bottom: 2px solid #ff6e40 ;
+  text-size-adjust: 12px;
+  border-bottom: 4px solid #ff6e40 ;
 }
 
 .sidebar .h6{
-  font-size: 18px;
+  font-size: 25px;
   color:#ff6e40;
 }
 
 .column {
   float: left;
   width: 20%;
-  padding: 30px;
+  padding: 18px;
 }
 
 /* Clear floats after the columns */
@@ -328,3 +330,8 @@ font-weight: bold;
  {
      color: rgb(197, 26, 26);
  }
+
+
+ /****************************/
+ 
+ 

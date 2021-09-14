@@ -4,36 +4,41 @@ import { Container } from "react-bootstrap/lib/Tab"; */
 
 
 export default class Filter extends Component{
+    state={
+        products:[]
+    }
+    componentDidMount(){
+        fetch("http://localhost:9393/products?categorie=Furniture").then(res=>res.json()).then(resultat=>this.setState({products:resultat.Products}))
+    }
 
     render(){
         return(
-            
+                   
+                    //    this.state.products && (
+                        
+                    //    )
+                       
             <div class="column">
+                
                <div id="left-column" class="sidebar col-xs-12 col-sm-12 col-md-4 col-lg-3">
                    <div class="bolck-categories block block-highlighted hidden-sm-down">
                        <h6 class="title_block"><a href="">Shop</a></h6>
+                       
                        <div class="block_content">
                            <ul class="category-top-menu">
-                               <li data-depth="0">
-                                   <a href="">Vegatable</a>
+                               {this.state.products.map(product=>(
+                                   <li data-depth="0">
+                                   <a href="">{JSON.stringify(product.categorie)}</a>
 
                                </li>
-                               <li data-depth="0">
-                                   <a href="">Vegatable</a>
 
-                               </li>
-                               <li data-depth="0">
-                                   <a href="">Vegatable</a>
-
-                               </li>
-                               <li data-depth="0">
-                                   <a href="" >Vegatable</a>
-
-                               </li>
+                               ))}
 
                            </ul>
                        </div>
                        </div>
+                       
+{/*                       
                        
                        <div id="search_filters" ><p class="text-uppercase h6 hidden-sm-down">Filter By</p>
                        <section   class="facet clearfix">
@@ -46,11 +51,11 @@ export default class Filter extends Component{
                 
                                
                                 <input type="checkbox" id="scales" name="scales"
-                                        checked  value={this.props.size} onChange={this.props.sortProducts}></input>
+                                         ></input>
                                 <label  for="scales">Scales</label>
                                 </div>
 
-                                <div value={this.props.size} onChange={this.props.sortProducts}>
+                                <div >
                                 <input type="checkbox" id="horns" name="horns"></input>
                                 <label for="horns">Horns</label>
                                 
@@ -65,7 +70,7 @@ export default class Filter extends Component{
                            <p class="h6 facet-title hidden-sn-down">Color</p>
                            <div>
                                 <input type="checkbox" id="scales" name="scales"
-                                        checked></input>
+                                        ></input>
                                 <label for="scales">White</label>
                                 </div>
 
@@ -79,14 +84,15 @@ export default class Filter extends Component{
 
                        <section class="facet clearfix">
                            <p class="h6 facet-title hidden-sn-down">Size</p>
+
                            <div>
                                 <input type="checkbox" id="scales" name="scales"
-                                        checked></input>
+                                       ></input>
                                 <label for="scales">All</label>
                                 </div>
                            <div>
                                 <input type="checkbox" id="scales" name="scales"
-                                        checked></input>
+                                        ></input>
                                 <label for="scales">S</label>
                                 </div>
 
@@ -96,7 +102,7 @@ export default class Filter extends Component{
                                 </div>
                                 <div>
                                 <input type="checkbox" id="scales" name="scales"
-                                        checked></input>
+                                        ></input>
                                 <label for="scales">L</label>
                                 </div>
 
@@ -134,12 +140,12 @@ export default class Filter extends Component{
                        </div>
                        
 
-
+ */}
 
 
 
             <div className="filter">
-            <div className="filter-result">{this.props.count} product</div>
+            {/* <div className="filter-result">{this.props.count} product</div> */}
                 
             {/* <div className="filter-sort">
                 Ctegories{" "}

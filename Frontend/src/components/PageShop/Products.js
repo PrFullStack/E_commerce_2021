@@ -3,12 +3,20 @@ import formatCurrency from '../../util';
 import '@fortawesome/fontawesome-free/css/all.min.css'; // npm install @fortawesome/fontawesome-free
 import Select from 'react-select';
 import ReactPaginate from 'react-paginate';
-
 import '../css/shop.css';
 import '../css/styleProduct.css';
+
   
 export default class Products extends Component{
+    
     render(){
+
+        const { products, loading } = this.props;
+
+        if (loading) {
+            return <h2>Loading...</h2>
+        }
+
        /*  const [items,setItems] = useState([]); */
          const handlePageClick=(data)=>{
             console.log(data.selected);
@@ -70,30 +78,7 @@ export default class Products extends Component{
                             </li>
                             ))}
                 </ul>
-<div id="react-paginate">
-               <ReactPaginate 
-              
-               previousLabel={'previous'}
-               nextLabel={'next'}
-               
-               pageCount={15}
-               marginPagesDisplayed={3}
-               pageRangeDisplayed={3}
-               onPageChange={handlePageClick}
-               containerClassName={'pagination'}
-               activeClassName={'active'}
-               pageClassName={'page-item'}
-               pageLinkClassName={'page-link'}
-               previousClassName={'page-item'}
-               previousClassName={'page-link'}
-               nextClassName={'page-item'}
-               nextLinkClassName={'page-link '}
-               breakClassName={'page-link'}
-               >
-                   
-                   
-               </ReactPaginate>
-               </div>
+
 </div>
 
               
@@ -109,8 +94,6 @@ export default class Products extends Component{
                <h1 className="h1">SHOP</h1>
              
                <Select options={options} />
-
                 
-
             </div>
              */}
