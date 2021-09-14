@@ -9,9 +9,10 @@ const ProductSchema=new mongoose.Schema({
     price:{type:Number,required :true},//
    description:{type:String,required :true},
 reduction:{type:Number,required :true},
+color:{type:String,required:true},
     designation:{type:String,required:true},
      path:{type:Array,required:true},
-     marque:{type:String,required:true},
+     brand:{type:String,required:true},
     creationDate:{type:Object,required:true}
   
 },options);
