@@ -112,8 +112,18 @@ catch(err)
 
 
 
+//getAll products
+router.get('/all', async (req,res)=>{
 
 
+
+  await Product.find( { }, function (err, Products) {
+
+    if(err) {res.status(404).json(err)}
+    res.status(200).json({ Products})
+    })
+    
+})
 
 
 
@@ -137,28 +147,30 @@ if(req.query.price)
 }
 if(req.query.dimension)
 {
-  searched.push({'price':req.query.dimension})
+  searched.push({'dimension':req.query.dimension})
 }
 if(req.query.material)
 {
-  searched.push({'price':req.query.material})
+  searched.push({'material':req.query.material})
 }
-if(req.query.capacite)
+if(req.query.capacity)
 {
-  searched.push({'price':req.query.capacite})
+  searched.push({'capacity':req.query.capacity})
 }
-
-
+if(req.query.brand)
+{
+  searched.push({'brand':req.query.brand})
+}
 
 
 if(req.query.color)
 {
-  searched.push({'price':req.query.color})
+  searched.push({'color':req.query.color})
 }
 
 if(req.query.size)
 {
-  searched.push({'price':req.query.size})
+  searched.push({'size':req.query.size})
 }
 
 var ProductModel;
@@ -167,7 +179,7 @@ if(req.query.categorie=="Clothes")
  ProductModel=Clothes;
 else if((req.query.categorie=="Computer"))
  ProductModel=Computer;
- else
+ else if((req.query.categorie=="Furniture"))
  ProductModel=Furniture;
 
 
