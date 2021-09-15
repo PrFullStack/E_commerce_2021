@@ -1,22 +1,55 @@
-import React ,{Component} from "react"
+import React ,{Component, useState} from "react"
 /* import { Left } from "react-bootstrap/lib/Media";
 import { Container } from "react-bootstrap/lib/Tab"; */
+// Using an ES6 transpiler like Babel
+//import RangeSlider from 'react-bootstrap-range-slider';
+import { Range } from 'react-range';
 
 
 export default class Filter extends Component{
     state={
-        products:[]
+        products:[],
+        categories:[],
+        values: [50] 
+        
     }
-    componentDidMount(){
-        fetch("http://localhost:9393/products?categorie=Furniture").then(res=>res.json()).then(resultat=>this.setState({products:resultat.Products}))
-    }
+   
+  
+     /* constructor(props){
+        // this.newArr=[]
+    
+ } */
+ //range
 
+ 
+
+    componentDidMount(){
+        fetch("http://localhost:9393/products/all").then(res=>res.json()).then(resultat=>{
+            var categorieSet=new Set();
+            resultat.Products.forEach(product => {
+                categorieSet.add(product.category);
+            });
+            console.log(this.state.products);
+            console.log({categorieSet});
+            this.setState({products:resultat.Products,categories:Array.from(categorieSet)});
+            console.log('ssdsdsdsd',this.state.categories);
+
+
+    })
+        //console.log(newAarr);
+       
+    }
     render(){
+        let { volume } = this.state
+        
         return(
                    
                     //    this.state.products && (
                         
                     //    )
+
+
+                    
                        
             <div class="column">
                 
@@ -26,9 +59,9 @@ export default class Filter extends Component{
                        
                        <div class="block_content">
                            <ul class="category-top-menu">
-                               {this.state.products.map(product=>(
+                               {this.state.categories.map(category=>(
                                    <li data-depth="0">
-                                   <a href="">{JSON.stringify(product.categorie)}</a>
+                                   <a href="">{category}</a>
 
                                </li>
 
@@ -37,7 +70,61 @@ export default class Filter extends Component{
                            </ul>
                        </div>
                        </div>
+                       <div id="search_filters" ><p class="text-uppercase h6 hidden-sm-down">Filter By</p>
                        
+                      
+                       <section   class="facet clearfix">
+                           <p class="h6 facet-title hidden-sn-down">Categories</p>
+
+                           <div className="filter-sort">
+                           
+                        
+                            
+                                    
+                                
+                               
+                                <input type="checkbox" id="scales" name="scales"
+                                         ></input>
+                                <label  for="scales">Scales</label>
+                                </div>
+
+                                <div >
+                                <input type="checkbox" id="horns" name="horns"></input>
+                                <label for="horns">Horns</label>
+                                
+                                
+                                
+                                </div>
+                       </section>
+                       
+                      
+                      
+                       <section class="facet clearfix">
+                           <p class="h6 facet-title hidden-sn-down">Color</p>
+                           <div>
+                                <input type="checkbox" id="scales" name="scales"
+                                        ></input>
+                                <label for="scales">White</label>
+                                </div>
+
+                                <div>
+                                <input type="checkbox" id="horns" name="horns"></input>
+                                <label for="horns">Black</label>
+                                </div>
+                        </section>
+                        
+                       
+
+                       
+
+
+     
+
+                                
+                 </div>
+                 
+            
+                                
 {/*                       
                        
                        <div id="search_filters" ><p class="text-uppercase h6 hidden-sm-down">Filter By</p>

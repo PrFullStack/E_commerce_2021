@@ -22,9 +22,9 @@ export default class Products extends Component{
             console.log(data.selected);
         } 
         const options = [
-            { value: 'chocolate', label: 'Chocolate' },
-            { value: 'strawberry', label: 'Strawberry' },
-            { value: 'vanilla', label: 'Vanilla' }
+            { value: 'Computer', label: 'Computer' },
+            { value: 'Furniture', label: 'Furniture' },
+            { value: 'Clothes', label: 'Clothes' }
           ]
           
         /* const Products = () => (

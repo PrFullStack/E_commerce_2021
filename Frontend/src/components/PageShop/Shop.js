@@ -40,6 +40,7 @@ prodsPerPage: 16,
               <Pagination prodsPerPage={prodsPerPage} totalProducts={products.length} 
               paginate={paginate} nextPage={nextPage} prevPage={prevPage} />
             </div>
+            
         )
     }
 
