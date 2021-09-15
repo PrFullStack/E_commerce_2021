@@ -12,7 +12,7 @@ var storage = multer.diskStorage({
   destination:  (req,file,cb)=>{
 
 
-    return cb(null,`./assets/${req.body.categorie}`)
+    return cb(null,`./assets/${req.body.category}`)
   },
   filename: (req,file,cb)=>{
     var name  = file.originalname.split(".");
@@ -30,7 +30,7 @@ var  upload = multer({  storage:storage});
 
 
 /// delete product 
-router.delete('deleteOne/:ref', async (req,res)=>{
+router.delete('/:reference', async (req,res)=>{
 
   try {
 
@@ -48,7 +48,19 @@ router.delete('deleteOne/:ref', async (req,res)=>{
 
 
 
+//update
 
+router.put( '/:reference' ,async(req,res)=>{
+
+  
+  await Product.findOneAndUpdate({reference:req.params[0]},req.body,function (err, Products) {
+
+    if(err) {res.status(404).json(err)}
+    res.status(200).json({ Products})
+    })
+
+
+});
 
 
 
@@ -71,15 +83,15 @@ router.post('/new',upload.array('photo'),async (req, res) => {
 for(var i=0;i<req.files.length;i++)
 {
 
-  path.push(`http://localhost:9393/${req.body.categorie}/${req.files[i].filename}`)
+  path.push(`http://localhost:9393/${req.body.category}/${req.files[i].filename}`)
 }
 
 
  var ProductModel;
-if(req.body.categorie=="Clothes")
+if(req.body.category=="Clothes")
 {  
 ProductModel=new Clothes(req.body);}
-else if(req.body.categorie=="Computer")
+else if(req.body.category=="Computer")
  {ProductModel=new Computer(req.body); }
 else
  {ProductModel=new Furniture(req.body);}
@@ -93,7 +105,7 @@ else
  'month': date.getMonth()+1,
  'year' : date.getFullYear()
  }
- ProductModel.path=path;
+ ProductModel.path=path;  
 
  try{
   await ProductModel.save();
@@ -105,6 +117,9 @@ catch(err)
 
 }
 })
+
+
+
 
 
 
@@ -128,10 +143,11 @@ router.get('/all', async (req,res)=>{
 
 
 
+
 // get products
 router.get('/', async (req,res)=>{
   var searched= new Array();
-  searched.push({'categorie':req.query.categorie});
+  searched.push({'category':req.query.category});
   
 if(req.query.newest)
 {
@@ -168,6 +184,13 @@ if(req.query.color)
   searched.push({'color':req.query.color})
 }
 
+
+
+if(req.query.format)
+{
+  searched.push({'format':req.query.color})
+}
+
 if(req.query.size)
 {
   searched.push({'size':req.query.size})
@@ -175,11 +198,11 @@ if(req.query.size)
 
 var ProductModel;
 
-if(req.query.categorie=="Clothes")
+if(req.query.category=="Clothes")
  ProductModel=Clothes;
-else if((req.query.categorie=="Computer"))
+else if((req.query.category=="Computer"))
  ProductModel=Computer;
- else if((req.query.categorie=="Furniture"))
+ else if((req.query.category=="Furniture"))
  ProductModel=Furniture;
 
 
