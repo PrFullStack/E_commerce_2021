@@ -21,7 +21,7 @@ export  async function getProductsApi(categorie)
 
 
 
-var url="http://localhost:9393/products?categorie="+categorie
+var url="http://localhost:9393/products?category="+categorie
 
 return fetch(url)
       .then((response) => {
@@ -66,6 +66,44 @@ return fetch(url)
       })
       .then((e) => {
 return e.Product
+      })
+
+
+      
+
+}
+
+
+
+
+
+
+
+
+export   function getProductsFiltred(filter)
+{
+ 
+
+
+
+
+
+
+
+
+
+var url="http://localhost:9393/products?"+filter
+
+
+return fetch(url)
+      .then((response) => {
+      
+     return    response.json();
+    
+      
+      })
+      .then((e) => {
+         return e.Products
       })
 
 
