@@ -22,7 +22,7 @@ render(){
         <div class="product-item">
         <div className="product-titre">
            
-       <p> {product.designation} </p>
+       <p> {product.title} </p>
                 <div class="ratting">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>

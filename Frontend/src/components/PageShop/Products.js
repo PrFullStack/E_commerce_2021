@@ -2,6 +2,7 @@ import React,{Component, useState} from 'react';
 import formatCurrency from '../../util';
 import '@fortawesome/fontawesome-free/css/all.min.css'; // npm install @fortawesome/fontawesome-free
 import Select from 'react-select';
+import {BrowserRouter as Router, Switch, Route, Link, Redirect} from "react-router-dom";
 import ReactPaginate from 'react-paginate';
 import '../css/shop.css';
 import '../css/styleProduct.css';
@@ -47,7 +48,8 @@ export default class Products extends Component{
             
                 <div class="product-item">
                     <div class="product-title">
-                        <a href={"#"+product._id}>{product._id}</a>
+                        {/* <a href={"#"+product._id}>{product._id}</a> */}
+                        <p>{product.title}</p>
                         <div class="ratting">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -57,18 +59,17 @@ export default class Products extends Component{
                         </div>
                     </div>
                     <div class="product-image">
-                        <a href="product-detail.html">
-                        <img src={product.image} alt="Product Image"/>
-                        </a>
-                        <div class="product-action">
-                            <a href="#"><i class="fa fa-cart-plus"></i></a>
-                            <a href="#"><i class="fa fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-search"></i></a>
-                        </div>
-                        <div class="product-price">
-                        <h3> <div>{formatCurrency(product.price)} </div></h3>
-                        <a class="btnShop" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
-                    </div>
+            <img src={product.path[0]} alt="Product Image"/>
+                <div class="product-action">
+                <Link to="/panier"><i class="fa fa-cart-plus"></i></Link>
+                <Link to="/favoris"><i class="fa fa-heart"></i></Link>
+                <Link to="/detail"><i class="fa fa-search"></i></Link>
+                </div>
+                <div class="product-price">
+                <Link to="#" class="btn"><i class="fa fa-shopping-cart"></i>Buy Now</Link>
+                <h3><span>$</span>{product.price}</h3>
+       
+                     </div>
                     </div>
                   
                 </div>

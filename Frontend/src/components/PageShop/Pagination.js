@@ -22,7 +22,9 @@ export class Pagination extends Component {
                         </li>
                     ))}
                     <li className="page-item">
+                        
                         <a className="page-link" href="#" onClick={() => nextPage()}>Next</a>
+                        
                     </li>
                 </ul>
             </nav>

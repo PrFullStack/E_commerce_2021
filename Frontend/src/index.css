@@ -85,7 +85,7 @@ main {
 .product-item li {
   flex: 0 1 29rem;
   height: 52rem;
-  padding: 3rem;
+  padding: 4rem;
 }
 .product {
   display: flex;

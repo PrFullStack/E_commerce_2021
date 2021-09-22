@@ -24,7 +24,8 @@ export  class Products extends Component{
 
 
   getProducts(categorie)
-  {  this.state.products=[]
+  {  this.state.products=[] 
+   // this.setState({products:[]})
  
     getProductsApi(categorie).then((e)=>{ var joined = this.state.products.concat(e);
       this.setState({products:joined})})
