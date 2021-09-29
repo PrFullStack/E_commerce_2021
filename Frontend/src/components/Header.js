@@ -6,11 +6,13 @@ import About from './About'; // importer About.js
 import Home from './PageHome/Home';// importer Home.js
 import Shop from './PageShop/Shop';
 import Detail from './PageDescription/Detail';
+import Panier from './PagePanier/Panier';
+import Favoris from './PageFavoris/Favoris';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";//npm install --save react-router-dom
 
 
-
 function Header() {
+    let cart=this.props.cart;
     const navDropdownTitle = (   <i className="fa fa-user"></i>);
   return (
    <div>
@@ -67,7 +69,7 @@ function Header() {
                     <div className="col-md-3">
                         <div className="logo">
                             <a href="">
-                                <img src="images\logo.jpg" alt="Logo"/>
+                               <img src="images\logo.jpg" />
                                 <span className="siteName">E-Shop</span>
                             </a>
                         </div>
@@ -80,16 +82,17 @@ function Header() {
                     </div>
                     <div className="col-md-3">
                         <div className="user">
-                            <a href="wishlist.html" className="btn wishlist">
+                        <Link to="/favoris" className="btn wishlist">
                                 <i className="fa fa-heart"></i>
                                 <span>(0)</span>
-                            </a>
-                            <a href="cart.html" className="btn cart">
+                            </Link>
+                            <Link to="/panier" className="btn wishlist">
                                 <i className="fa fa-shopping-cart"></i>
-                                <span>(0)</span>
-                            </a>
+                                <span>(0))</span>
+                            </Link>
                         </div>
                     </div>
+
                 </div>
             </div>
 </div>
@@ -97,7 +100,13 @@ function Header() {
                        
                 </div>
                 <Switch>
-                      <Route path="/detail">
+                <Route path="/favoris">
+                            <Favoris/>
+                        </Route>
+                <Route path="/panier">
+                            <Panier/>
+                        </Route>
+                      <Route path="/contact">
                             <Detail />
                         </Route>
                        <Route path="/about">
@@ -105,9 +114,8 @@ function Header() {
                         </Route>
                         <Route path="/shop">
                             <Shop />
-                        </Route>
-                      
-                        <Route path="/">
+                            </Route>
+                            <Route path="/">
                             <Home />
                         </Route>
                    </Switch>
